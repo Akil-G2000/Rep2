@@ -1,145 +1,134 @@
 package projects;
 
-import java.util.Map;
 import java.util.LinkedHashMap;
+import java.util.Map;
 import java.util.Scanner;
 
 public class Project1 {
 
 	public static void main(String args[]) {
 		Scanner scan = new Scanner(System.in);
-		System.out.println("Enter Number");
+		System.out.println("Enter Number \n1--> For India \n2--> For Australia");
 		int n = scan.nextInt();
-		System.out.print(Squad(n));
+		System.out.print(squad(n));
 	}
 
-	public static Map<String, Map<String, Map>> Squad(int number) {
+	public static Map<String, String> squad(int number) {
 		Scanner scan = new Scanner(System.in);
-		Map<String, String> str = new LinkedHashMap<>();
 
-		Map<String, Map> Virat = new LinkedHashMap<>();
-		Map<String, Map> Rohit = new LinkedHashMap<>();
-		Map<String, Map> Hardik = new LinkedHashMap<>();
-		Map<String, Map> Jasprit = new LinkedHashMap<>();
+		String age = "\n  Age", matches = "\n  Matches", runs = "\n  Runs", average = "\n  Average", best = "\n  Best",
+				wickets = "\n  Wickets";
+		String batsman = "  Batsman", bowler = "  Bowler", allrounder = "  All-Rounder", c = "CAPTAIN",
+				vc = "VICE CAPTAIN";
+		Map<String, String> player = new LinkedHashMap();
 		Map<String, String> data = new LinkedHashMap<>();
 
 		if (number == 1) {
-			str.put("      INDIA   ", ">");
-			str.put("\nVirat Kohli    ", " (C)  Batsmen ");
-			str.put("\nRohit Sharma   ", " (VC) Batsmen ");
-			str.put("\nHardik Pandya  ", "      All-rounder ");
-			str.put("\nJasprit Bumrah ", "      Bowler ");
+			player.put("      INDIA   ", ">");
+			player.put("\nVirat Kohli  (C)  ", batsman);
+			player.put("\nRohit Sharma (VC) ", batsman);
+			player.put("\nHardik Pandya  ", allrounder);
+			player.put("\nJasprit Bumrah ", bowler);
 
-			System.out.println(str);
+			System.out.println(player);
 			System.out.println("\nEnter The Player Name:");
-			String Str = scan.nextLine();
-			if (Str.equals("Virat Kohli")) {
-				data.put("VIRAT KOHLI", " CAPTAIN");
-				data.put("\n  Age", " 32");
+			String str = scan.nextLine();
+			if (str.equals("Virat Kohli")) {
+				data.put("VIRAT KOHLI", c);
+				data.put(age, " 32");
 				data.put("\n  Right Handed BatsMan", "");
-				data.put("\n  Matches", " 254");
-				data.put("\n  Runs", " 12,169");
-				data.put("\n  Average", " 59.09");
-				data.put("\n  Best", " 183");
-				Virat.put("data", data);
-				return Virat.get("data");
+				data.put(matches, " 254");
+				data.put(runs, " 12,169");
+				data.put(average, " 59.09");
+				data.put(best, " 183");
+				return data;
 			}
-			if (Str.equals("Rohit Sharma")) {
-				data.put("ROHIT SHARMA", " VICE CAPTAIN");
-				data.put("\n  Age", " 34");
+			if (str.equals("Rohit Sharma")) {
+				data.put("ROHIT SHARMA", vc);
+				data.put(age, " 34");
 				data.put("\n  Right Handed BatsMan", "");
-				data.put("\n  Matches", " 227");
-				data.put("\n  Runs", " 90,205");
-				data.put("\n  Average", " 48.96");
-				data.put("\n  Best", " 264");
-				Rohit.put("data", data);
-				return Rohit.get("data");
+				data.put(matches, " 227");
+				data.put(runs, " 90,205");
+				data.put(average, " 48.96");
+				data.put(best, " 264");
+				return data;
 			}
-			if (Str.equals("Hardik Pandya")) {
+			if (str.equals("Hardik Pandya")) {
 				data.put("HARDIK PANDYA", " PLAYER");
-				data.put("\n  Age", " 27");
+				data.put(age, " 27");
 				data.put("\n  Right Handed BatsMan", "");
-				data.put("\n  Matches", " 60");
-				data.put("\n  Runs", " 1,267");
-				data.put("\n  Average", " 34.24");
-				data.put("\n  Best", " 92*");
-				Hardik.put("data", data);
-				return Hardik.get("data");
+				data.put(matches, " 60");
+				data.put(runs, " 1,267");
+				data.put(average, " 34.24");
+				data.put(best, " 92*");
+				return data;
 			}
-			if (Str.equals("Jasprit Bumrah")) {
+			if (str.equals("Jasprit Bumrah")) {
 				data.put("JASPRIT BUMRAH", " PLAYER");
-				data.put("\n  Age", " 27");
-				data.put("\n  Right Arm Fast Bowler", "");
-				data.put("\n  Matches", " 67");
-				data.put("\n  Wickets", " 108");
-				data.put("\n  Average", " 25.33");
-				data.put("\n  Best", " 5/27");
-				Jasprit.put("data", data);
-				return Jasprit.get("data");
-			} else
-				System.out.println("No Data Found");
+				data.put(age, " 27");
+				data.put("\n  Right Arm Fast", "");
+				data.put(matches, " 67");
+				data.put(wickets, " 108");
+				data.put(average, " 25.33");
+				data.put(best, " 5/27");
+				return data;
+			}
+			// else
+			// System.out.println("No Data Found");
 		}
 
-		Map<String, Map> Finch = new LinkedHashMap<>();
-		Map<String, Map> Cummins = new LinkedHashMap<>();
-		Map<String, Map> Maxwell = new LinkedHashMap<>();
-		Map<String, Map> Behrendorff = new LinkedHashMap<>();
-
 		if (number == 2) {
-			str.put("     AUSTRALIA   ", ">");
-			str.put("\nAaroan Finch      ", " (C)  Batsmen ");
-			str.put("\nPat Cummins       ", " (VC) Bowler ");
-			str.put("\nGlenn Maxwell     ", "      All-rounder ");
-			str.put("\nJason Behrendorff ", "      Bowler ");
-			System.out.println(str);
+			player.put("     AUSTRALIA   ", ">");
+			player.put("\nAaroan Finch  (C)  ", batsman);
+			player.put("\nPat Cummins   (VC)  ", bowler);
+			player.put("\nGlenn Maxwell  ", allrounder);
+			player.put("\nJason Behrendorff  ", bowler);
+			System.out.println(player);
 
 			System.out.println("\nEnter The Player Name:");
-			String Str = scan.nextLine();
-			if (Str.equals("Aaroan Finch")) {
-				data.put("AAROAN FINCH", "CAPTAIN");
-				data.put("\n  Age", " 34");
+			String str = scan.nextLine();
+			if (str.equals("Aaroan Finch")) {
+				data.put("AAROAN FINCH", c);
+				data.put(age, " 34");
 				data.put("\n  Right Handed BatsMan", "");
-				data.put("\n  Matches", " 132");
-				data.put("\n  Runs", " 5,232");
-				data.put("\n  Average", " 41.85");
-				data.put("\n  Best", " 153*");
-				Finch.put("data", data);
-				return Finch.get("data");
+				data.put(matches, " 132");
+				data.put(runs, " 5,232");
+				data.put(average, " 41.85");
+				data.put(best, " 153*");
+				return data;
 			}
-			if (Str.equals("Pat Cummins")) {
-				data.put("PAT CUMMINS", " VICE CAPTAIN");
-				data.put("\n  Age", " 28");
-				data.put("\n  Right Right Arm Fast Bowler", "");
-				data.put("\n  Matches", " 69");
-				data.put("\n  Wickets", " 111");
-				data.put("\n  Average", " 28.78");
-				data.put("\n  Best", " 5/70");
-				Cummins.put("data", data);
-				return Cummins.get("data");
+			if (str.equals("Pat Cummins")) {
+				data.put("PAT CUMMINS", vc);
+				data.put(age, " 28");
+				data.put("\n  Right Arm Fast", "");
+				data.put(matches, " 69");
+				data.put(wickets, " 111");
+				data.put(average, " 28.78");
+				data.put(best, " 5/70");
+				return data;
 			}
-			if (Str.equals("Glenn Maxwell")) {
+			if (str.equals("Glenn Maxwell")) {
 				data.put("GLENN MAXWELL", " PLAYER");
-				data.put("\n  Age", " 32");
+				data.put(age, " 32");
 				data.put("\n  Right Handed BatsMan", "");
-				data.put("\n  Matches", " 116");
-				data.put("\n  Runs", " 3,230");
-				data.put("\n  Average", " 34.36");
-				data.put("\n  Best", " 108");
-				Maxwell.put("data", data);
-				return Maxwell.get("data");
+				data.put(matches, " 116");
+				data.put(runs, " 3,230");
+				data.put(average, " 34.36");
+				data.put(best, " 108");
+				return data;
 			}
-			if (Str.equals("Jason Behrendorff")) {
+			if (str.equals("Jason Behrendorff")) {
 				data.put("JASON BEHRENDORFF", " PLAYER");
-				data.put("\n  Age", " 31");
-				data.put("\n  Right Left Arm Fast Medium", "");
-				data.put("\n  Matches", " 11");
-				data.put("\n  Wickets", " 16");
-				data.put("\n  Average", " 32.31");
-				data.put("\n  Best", " 5/44");
-				Behrendorff.put("data", data);
-				return Behrendorff.get("data");
-			} else
-				System.out.println("No Data Found");
+				data.put(age, " 31");
+				data.put("\n  Left Arm Fast Medium", "");
+				data.put(matches, " 11");
+				data.put(wickets, " 16");
+				data.put(average, " 32.31");
+				data.put(best, " 5/44");
+				return data;
+			}
+			// else
+			// System.out.println("No Data Found");
 		}
 		return null;
 
